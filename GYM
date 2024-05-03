@@ -1,1 +1,73 @@
+import telebot
+from telebot import types
+TOKEN = "6905402429:AAFubBgvnAMH4XWnWCZQvTWeti3ieZetP6k"
 
+bot = telebot.TeleBot(TOKEN)
+
+
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.send_message(message.chat.id, 'Wsp')
+    markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
+
+    item1= types.KeyboardButton('Timetable Monday Training')
+    item5= types.KeyboardButton('Timetable Wednesday Training')
+    item6= types.KeyboardButton('Timetable Friday Training')
+    item7= types.KeyboardButton('Timetable Rest Day')
+    item2= types.KeyboardButton('Start training')
+    item8= types.KeyboardButton('Eating Food')
+    item9= types.KeyboardButton('Sleep time')
+    item10= types.KeyboardButton('To Go Shop')
+    item3= types.KeyboardButton('Result')
+    item4= types.KeyboardButton('Food Plan')
+
+    markup.add(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10)
+
+    bot.send_message(message.chat.id,'Wsp! Im a bot who can help you with workout in gym {0.first_name}!'.format(message.from_user),reply_markup=markup)
+
+
+@bot.message_handler(content_types=['text'])
+def bot_message(message):
+ if message.chat.type=='private':
+     if message.text=='Timetable Monday Training':
+        bot.send_message(message.chat.id, 'Timetable Monday Training: Shoulders, Legs, Shins. Here how to much need to train: blob:https://web.telegram.org/ab324ae2-0606-4d82-8f74-1d06a82b41de')
+
+if message.chat.type=='private':
+     if message.text=='Timetable Wednesday Training':
+        bot.send_message(message.chat.id, 'Timetable Wednesday Training: Chest, Legs, Abs. Here how much need to train: blob:https://web.telegram.org/48399c26-800b-460a-b150-26e7c2b1a65b')
+
+if message.chat.type=='private':
+     if message.text=='Timetable Friday Training':
+        bot.send_message(message.chat.id, 'Timetable Friday Training: The back, Triceps, Biceps. Here how much need to train: blob:https://web.telegram.org/4fbaf052-533d-4300-87a3-942828aa37b7')
+
+if message.chat.type=='private':
+     if message.text=='Timetable Rest Day':
+        bot.send_message(message.chat.id, 'Timetable Rest Day: Thuesday, Thursday, Saturday, Sunday Recomadation how to rest: Do not hard work on your body this day.')
+
+ if message.chat.type=='private':
+     if message.text=='Start training':
+        bot.send_message(message.chat.id, 'You started train and you gained muscle, strength, kg and height')
+
+if message.chat.type=='private':
+     if message.text=='Eating Food':
+        bot.send_message(message.chat.id, 'You now eating food and you gained muscle and height, kg.')
+
+if message.chat.type=='private':
+     if message.text=='Sleep time':
+        bot.send_message(message.chat.id, 'You sleeping and you gained height.')
+
+if message.chat.type=='private':
+     if message.text=='To go shop':
+        bot.send_message(message.chat.id, 'You going to shop and buying food from list food.')
+
+ if message.chat.type=='private':
+     if message.text=='Result':
+        bot.send_message(message.chat.id, 'You big muscle and very you higth then kg like 105kg and strength normal. ')
+
+ @bot.message_handler(content_types=['text'])
+ def bot_message(message):
+     if message.chat.type=='private':
+         if message.text=='Food Plan':
+            bot.send_message(message.chat.id, 'blob:https://web.telegram.org/b9e7d0fd-ecdc-40f8-8459-862ef6959262')
+
+bot.polling()
