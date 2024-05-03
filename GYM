@@ -62,7 +62,7 @@ if message.chat.type=='private':
 
  if message.chat.type=='private':
      if message.text=='Result':
-        bot.send_message(message.chat.id, 'You big muscle and very you higth then kg like 105kg and strength normal. ')
+        bot.send_message(message.chat.id, 'You have big muscle and very you higth then kg like 105kg and strength normal. ')
 
  @bot.message_handler(content_types=['text'])
  def bot_message(message):
