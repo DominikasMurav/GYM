@@ -1,9 +1,7 @@
 import telebot
 from telebot import types
 TOKEN = "6905402429:AAFubBgvnAMH4XWnWCZQvTWeti3ieZetP6k"
-
 bot = telebot.TeleBot(TOKEN)
-
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -15,22 +13,22 @@ def start(message):
     item6= types.KeyboardButton('Timetable Friday Training')
     item7= types.KeyboardButton('Timetable Rest Day')
     item2= types.KeyboardButton('Start training')
-    item8= types.KeyboardButton('Eating Food')
+    item8= types.KeyboardButton('Eat Food')
     item9= types.KeyboardButton('Sleep time')
     item10= types.KeyboardButton('To Go Shop')
-    item3= types.KeyboardButton('Result')
+    item3= types.KeyboardButton('Result Body')
     item4= types.KeyboardButton('Food Plan')
 
     markup.add(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10)
 
-    bot.send_message(message.chat.id,'Wsp! Im a bot who can help you with workout in gym {0.first_name}!'.format(message.from_user),reply_markup=markup)
+    bot.send_message(message.chat.id,'Wsp! Im a bot who can help you with workout in gym and other things {0.first_name}!'.format(message.from_user),reply_markup=markup)
 
 
 @bot.message_handler(content_types=['text'])
 def bot_message(message):
  if message.chat.type=='private':
      if message.text=='Timetable Monday Training':
-        bot.send_message(message.chat.id, 'Timetable Monday Training: Shoulders, Legs, Shins. Here how to much need to train: blob:https://web.telegram.org/ab324ae2-0606-4d82-8f74-1d06a82b41de')
+        bot.send_message(message.chat.id, 'Timetable Monday Training: Shoulders, Legs, Shins. Here how much need to train: blob:https://web.telegram.org/ab324ae2-0606-4d82-8f74-1d06a82b41de')
 
 if message.chat.type=='private':
      if message.text=='Timetable Wednesday Training':
@@ -42,27 +40,27 @@ if message.chat.type=='private':
 
 if message.chat.type=='private':
      if message.text=='Timetable Rest Day':
-        bot.send_message(message.chat.id, 'Timetable Rest Day: Thuesday, Thursday, Saturday, Sunday Recomadation how to rest: Do not hard work on your body this day.')
+        bot.send_message(message.chat.id, 'Timetable Rest Day: Thuesday, Thursday, Saturday, Sunday Recomadation how to rest: Don't go to gym just read newspaper and etc...')
 
  if message.chat.type=='private':
      if message.text=='Start training':
         bot.send_message(message.chat.id, 'You started train and you gained muscle, strength, kg and height')
 
 if message.chat.type=='private':
-     if message.text=='Eating Food':
+     if message.text=='Eat Food':
         bot.send_message(message.chat.id, 'You now eating food and you gained muscle and height, kg.')
 
 if message.chat.type=='private':
      if message.text=='Sleep time':
-        bot.send_message(message.chat.id, 'You sleeping and you gained height.')
+        bot.send_message(message.chat.id, 'You sleeping and you gained height, age, muscle and kg.')
 
 if message.chat.type=='private':
-     if message.text=='To go shop':
+     if message.text=='To Go shop':
         bot.send_message(message.chat.id, 'You going to shop and buying food from list food.')
 
  if message.chat.type=='private':
-     if message.text=='Result':
-        bot.send_message(message.chat.id, 'You have big muscle and very you higth then kg like 105kg and strength normal. ')
+     if message.text=='Result Body':
+        bot.send_message(message.chat.id, 'You have perfect body' )
 
  @bot.message_handler(content_types=['text'])
  def bot_message(message):
